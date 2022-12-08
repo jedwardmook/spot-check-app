@@ -5,7 +5,7 @@ function SignUp() {
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
 
-    function handleSubmit(e){
+    const handleSignup = (e) => {
         e.preventDefault();
         fetch('/users', {
             method: "POST",
@@ -29,9 +29,9 @@ function SignUp() {
                 response.json().then((errors) => console.log(errors.errors))
             }
         })
-        setUsername("")
-        setPassword("")
-        setPasswordConfirmation("")
+        setUsername("");
+        setPassword("");
+        setPasswordConfirmation("");
     }
     
     return (
@@ -47,7 +47,7 @@ function SignUp() {
             value={passwordConfirmation}
             onChange={(e) => setPasswordConfirmation(e.target.value)}
             />
-        <button onClick={handleSubmit}>Submit</button>
+        <button onClick={handleSignup}>Submit</button>
       </div>
     );
   }

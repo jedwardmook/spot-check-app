@@ -1,4 +1,5 @@
 import './App.css';
+import LogIn from './LogIn';
 import MapContainer from './MapContainer';
 import SignUp from './SignUp';
 
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <MapContainer />
       <SignUp />
+      <LogIn />
     </div>
   );
 }
