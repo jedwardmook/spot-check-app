@@ -1,3 +1,4 @@
+import './Styles/signup.min.css';
 import React, { useState } from "react";
 
 function SignUp() {
