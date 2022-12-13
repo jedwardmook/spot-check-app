@@ -73,8 +73,8 @@ $sanSarifFont: Roboto, sans-serif;
 }
 
 @mixin dash {
-    height: 8px;
-    width: 35px;
+    height: 9px;
+    width: 37px;
     border-radius: 13px;
-    background-color: white;
+    background-color: $darkBlue;
 }
