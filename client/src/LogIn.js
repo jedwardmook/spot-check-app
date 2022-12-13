@@ -1,3 +1,5 @@
+import './Styles/login.min.css';
+import logo from "./images/spot_check-2.png"
 import React, { useState } from "react";
 
 function LogIn() {
@@ -30,14 +32,25 @@ function LogIn() {
 
     return (
         <div className="login_div">
-        username<input
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}/>
-        password<input 
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            />
-        <button onClick={handleLogin}>Submit</button>
+            <div className='login_info_div'>
+                <img className="logo" src={logo}/>
+                <h1 className='welcome'>Log into your account</h1>
+            <div className='login_form'>
+                <input
+                    className='login_top'
+                    placeholder='Username'
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    />
+                <input 
+                    className='login_bottom'
+                    placeholder='Password'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    />
+                <button onClick={handleLogin} className="login_button">Submit</button>
+            </div>
+            </div>
         </div>
     )
 }

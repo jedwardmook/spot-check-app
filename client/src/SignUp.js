@@ -1,4 +1,5 @@
 import './Styles/signup.min.css';
+import logo from "./images/spot_check-2.png"
 import React, { useState } from "react";
 
 function SignUp() {
@@ -37,18 +38,31 @@ function SignUp() {
     
     return (
       <div className="signup_div">
-        username<input
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}/>
-        password<input 
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            />
-        confirm password<input 
-            value={passwordConfirmation}
-            onChange={(e) => setPasswordConfirmation(e.target.value)}
-            />
-        <button onClick={handleSignup}>Submit</button>
+        <div className="signup_info_div">
+            <img className="logo" src={logo}/>
+            <h1 className='welcome'>Sign up for your account</h1>
+        <div className="signup_form">
+            <input
+                className="signup_top_input"
+                placeholder='Username'
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                />
+            <input
+                className="signup_input"
+                placeholder='Password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                />
+            <input
+                className="signup_bottom_input"
+                placeholder='Confirm Password'
+                value={passwordConfirmation}
+                onChange={(e) => setPasswordConfirmation(e.target.value)}
+                />
+        <button className="signup_button" onClick={handleSignup}>Submit</button>
+        </div>
+        </div>
       </div>
     );
   }

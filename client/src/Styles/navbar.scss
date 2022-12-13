@@ -1,0 +1,39 @@
+@import "../Variables/Variables.scss";
+
+.navbar_div {
+    display: flex;
+    justify-content:space-between;
+    height: 60px;
+    width: 100%;
+    background-color: $darkBlue;
+}
+
+.navbar_marker {
+    margin-right: 20px;
+    height: 60px;
+    width: 120px;
+}
+
+.navbar_menu {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 13px;
+    height: 37px;
+    width: 37px;
+    margin-top: 5px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.navbar_menu:hover {
+    background-color: $lightBlue;
+}
+
+.dash {
+  @include dash
+}

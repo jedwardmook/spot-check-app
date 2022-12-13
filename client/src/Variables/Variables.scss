@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
+
+$darkBlue:#005a9c;
+$lightBlue: #86d5f6;
+$redColor: #ed2024;
+$sanSarifFont: Roboto, sans-serif; 
+
+@mixin opacityWindow {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y:scroll;
+    overflow-x:hidden; 
+}
+
+@mixin formDiv($width, $height) {
+    position: relative;
+    background: $darkBlue;
+    width: $width;
+    height: $height;
+    border-radius: 15px;
+    box-shadow: 1px 2px 7px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 1px 2px 7px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 2px 7px 0px rgba(0, 0, 0, 0.75);
+}
+
+@mixin inputsDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@mixin input ($topLeft, $topRight, $bottomLeft, $bottomRight){
+    height: 40px;
+    width: 400px;
+    border: solid .5px $lightBlue;
+    font-family: $sanSarifFont;
+    font-size: 16px;
+    padding-left: 5px;
+    margin-bottom: 1px;
+    border-top-left-radius: $topLeft;
+    border-top-right-radius: $topRight;
+    border-bottom-left-radius: $bottomLeft;
+    border-bottom-right-radius: $bottomRight;
+}
+
+@mixin button {
+    border-radius: 13px;
+    margin-top: 20px;
+    background-color: $lightBlue;
+    font-family: $sanSarifFont;
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+    height: 35px;
+    width: 100px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 1px 2px 7px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 1px 2px 7px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 2px 7px 0px rgba(0, 0, 0, 0.75);
+    &:hover {
+        filter: brightness(110%);
+        color: $redColor;
+    }
+}
+
+@mixin dash {
+    height: 8px;
+    width: 35px;
+    border-radius: 13px;
+    background-color: white;
+}
