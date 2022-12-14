@@ -1,5 +1,5 @@
-import './Styles/signup.min.css';
-import logo from "./images/spot_check-2.png"
+import '../Styles/signup.min.css';
+import logo from "../images/spot_check-2.png"
 import React, { useState } from "react";
 
 function SignUp() {

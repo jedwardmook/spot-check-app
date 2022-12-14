@@ -1,5 +1,6 @@
 import React from "react"
 import { GoogleMap, LoadScript } from "@react-google-maps/api"
+import '../Styles/mapcontainer.min.css'
 
 const containerStyle = {
     display: 'flex',
@@ -24,13 +25,15 @@ function MapContainer() {
         <LoadScript
             googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
             >
-        <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={13}
-            options={options}
+            <div className="map_div">
+            <GoogleMap
+                mapContainerStyle={containerStyle}
+                center={center}
+                zoom={13}
+                options={options}
             >
-        </GoogleMap>
+            </GoogleMap>
+            </div>
         </LoadScript>
     )
 }

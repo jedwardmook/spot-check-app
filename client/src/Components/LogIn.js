@@ -1,10 +1,16 @@
-import './Styles/login.min.css';
-import logo from "./images/spot_check-2.png"
-import React, { useState } from "react";
+import '../Styles/login.min.css';
+import logo from "../images/spot_check-2.png"
+import React, { useState, useContext } from "react";
+import { UserContext } from '../context/user';
+import { useNavigate } from "react-router-dom"
 
 function LogIn() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+
+    const {user, setUser} = useContext(UserContext)
+
+    let navigate = useNavigate()
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -20,7 +26,8 @@ function LogIn() {
         }).then((response) => {
             if (response.ok) {
                 response.json().then((user) => {
-                    console.log(user);
+                    setUser(user);
+                    navigate("/")
                 })
             } else {
                 response.json().then((errors) => console.log(errors.errors))
@@ -45,6 +52,7 @@ function LogIn() {
                 <input 
                     className='login_bottom'
                     placeholder='Password'
+                    type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     />
