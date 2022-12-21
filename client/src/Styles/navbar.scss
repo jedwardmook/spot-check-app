@@ -9,7 +9,9 @@
 }
 
 .navbar_logo {
-    margin-right: 20px;
+    position: fixed;
+    right: 0px;
+    margin-right: 10px;
     height: 60px;
     width: 120px;
 }
@@ -39,13 +41,15 @@
 }
 
 .navbar_user_menu {
+    display: flex;
+    justify-content: space-between;
     position: fixed;
-    height: 159px;
-    width: 130px;
+    left: 0;
+    height: 40px;
+    width: 100%;
     border: 1px solid $darkBlue;
     border-bottom-left-radius: 13px;
     border-bottom-right-radius: 13px;
-    margin-left: 80px;
     margin-top: 49px;
     background-color: white;
     z-index: 1;
@@ -56,15 +60,33 @@
 }
 
 .menu_link {
-    display: flex;
-    font-size: 16px;
+    font-size: 18px;
     margin-left: 10px;
     height: 30px;
     margin-top: -15px;
 }
 
-hr {
-    border: .5px solid rgb(210, 210, 210);
-    margin-top: 20px;
-    margin-bottom: 5px;
+.add_spot_window {
+    z-index: 1;
+    @include opacityWindow;
+}
+
+.add_spot_div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: -100px;
+    @include formDiv(270px, 100px)
+}
+
+.add_spot_button {
+    @include button(0px, $lightBlue, white)
+}
+
+.cancel_button {
+    @include button(0px, white, $lightBlue)
+}
+
+.off {
+    @include off
 }

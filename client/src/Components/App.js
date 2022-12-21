@@ -5,18 +5,39 @@ import MapContainer from './MapContainer';
 import SignUp from './SignUp';
 import Navbar from './Navbar';
 import MyProfile from './MyProfile';
+import AddSpot from './AddSpot';
 import { UserProvider } from '../context/user';
+import { useState } from 'react';
+import { SwitchesProvider } from '../context/switches';
 
 function App() {
+  const [addSpot, setAddSpot] = useState(false)
+  const [spotLat, setSpotLat] = useState(null)
+  const [spotLng, setSpotLng] = useState(null)
 
   return (
     <Router>
     <div className="App">
       <UserProvider>
-        <Navbar/>
+        <SwitchesProvider>
+        <Navbar
+          addSpot={addSpot}
+          setAddSpot={setAddSpot}
+          />
         <Routes>
           <Route exact path='/'
-          element={<MapContainer />}
+          element={<MapContainer
+            addSpot={addSpot} 
+            setAddSpot={setAddSpot}
+            setSpotLat={setSpotLat}
+            setSpotLng={setSpotLng}
+            />}
+          />
+          <Route exact path='addspot'
+          element={<AddSpot
+            spotLat={spotLat}
+            spotLng={spotLng}
+            />}
           />
           <Route path='signup'
           element={<SignUp />}
@@ -28,6 +49,7 @@ function App() {
           element={<MyProfile/>}
           />
       </Routes>
+      </SwitchesProvider>
       </UserProvider>
     </div>
     </Router>

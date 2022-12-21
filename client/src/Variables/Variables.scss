@@ -43,7 +43,7 @@ $sanSarifFont: Roboto, sans-serif;
     border: solid .5px $lightBlue;
     font-family: $sanSarifFont;
     font-size: 16px;
-    padding-left: 5px;
+    padding-left: 10px;
     margin-bottom: 1px;
     border-top-left-radius: $topLeft;
     border-top-right-radius: $topRight;
@@ -51,14 +51,14 @@ $sanSarifFont: Roboto, sans-serif;
     border-bottom-right-radius: $bottomRight;
 }
 
-@mixin button {
+@mixin button ($topMargin, $color,$fontColor) {
     border-radius: 13px;
-    margin-top: 20px;
-    background-color: $lightBlue;
+    margin-top: $topMargin;
+    background-color: $color;
     font-family: $sanSarifFont;
     font-weight: 700;
     font-size: 16px;
-    color: white;
+    color: $fontColor;
     height: 35px;
     width: 100px;
     border: none;
@@ -88,4 +88,8 @@ $sanSarifFont: Roboto, sans-serif;
     &:hover {
         color: $lightBlue;
     }
+}
+
+@mixin off {
+    display: none;
 }

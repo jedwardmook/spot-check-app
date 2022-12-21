@@ -41,5 +41,5 @@
 }
 
 .signup_button {
-    @include button
+    @include button(20px, $lightBlue, white)
 }
