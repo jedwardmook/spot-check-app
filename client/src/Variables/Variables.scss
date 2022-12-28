@@ -37,8 +37,8 @@ $sanSarifFont: Roboto, sans-serif;
     flex-direction: column;
 }
 
-@mixin input ($topLeft, $topRight, $bottomLeft, $bottomRight){
-    height: 40px;
+@mixin input ($topLeft, $topRight, $bottomLeft, $bottomRight, $height){
+    height: $height;
     width: 400px;
     border: solid .5px $lightBlue;
     font-family: $sanSarifFont;
@@ -72,6 +72,22 @@ $sanSarifFont: Roboto, sans-serif;
     }
 }
 
+@mixin exit ($margin-left, $margin-bottom, $margin-top){
+    margin-left: $margin-left;
+    margin-bottom: $margin-bottom;
+    margin-top: $margin-top;
+    background-color: white;
+    width: 19px;
+    height: 19px;
+    border-radius: 13px;
+    color: $darkBlue;
+    font-size: 14px;
+    cursor: pointer;
+    &:hover {
+        opacity: .75;
+    }
+}
+
 @mixin dash {
     height: 8px;
     width: 37px;
@@ -92,4 +108,10 @@ $sanSarifFont: Roboto, sans-serif;
 
 @mixin off {
     display: none;
+}
+
+@mixin header($fontSize, $fontColor) {
+    font-family: $sanSarifFont;
+    font-size: $fontSize;
+    color: $fontColor;
 }

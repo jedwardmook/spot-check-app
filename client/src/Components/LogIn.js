@@ -30,7 +30,7 @@ function LogIn() {
                     navigate("/")
                 })
             } else {
-                response.json().then((errors) => console.log(errors.errors))
+                response.json().then((errors) => console.log(errors))
             }
         })        
         setUsername("");
@@ -40,7 +40,7 @@ function LogIn() {
     return (
         <div className="login_div">
             <div className='login_info_div'>
-                <img className="logo" src={logo}/>
+                <img className="logo" src={logo} alt="Spot Check"/>
                 <h1 className='welcome'>Log into your account</h1>
             <div className='login_form'>
                 <input

@@ -1,0 +1,45 @@
+@import "../Variables/Variables.scss";
+
+.add_spot_window {
+    @include opacityWindow
+}
+
+.add_spot_main_div {
+    @include formDiv(600px, 600px)
+}
+
+.add_spot_exit_button {
+    @include exit(10px, -10px, 10px)
+}
+
+.close {
+    @include link(1px)
+}
+
+.add_spot_top_input {
+    @include input(13px, 13px, 13px, 13px, 40px)
+}
+
+.add_spot_textarea {
+    height: 390px;
+    padding-top: 10px;
+    @include input(13px, 13px, 13px, 13px, 100px)
+}
+
+.add_spot_photo {
+    background-color: white;
+    @include input(13px, 13px, 13px, 13px, 40px)
+}
+
+.add_spot_photo::file-selector-button {
+    @include button(2px, $lightBlue, white)
+}
+
+.add_spot_photos_title {
+    margin-top: 5px;
+    @include header(16px, white)
+}
+
+.add_spot_submit {
+    @include button (10px, $lightBlue, white)
+}

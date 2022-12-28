@@ -30,6 +30,7 @@ function MapContainer({setAddSpot, addSpot, setSpotLat, setSpotLng}) {
     const [whereabouts, setWhereabouts] = useState(null)
 
     const handleClick = (e) => {
+        console.log(e)
         setSpotLat(e.latLng.lat());
         setSpotLng(e.latLng.lng());
         setAddSpot(!addSpot)

@@ -38,7 +38,7 @@ function Navbar({addSpot, setAddSpot}) {
                         <Link className="menu_links" to=""><div className='menu_link'><h4>Log Out</h4></div></Link>
                     </div>}
             </div>
-                <Link to="/"><img className="navbar_logo" src={logo} /></Link>
+                <Link to="/"><img className="navbar_logo" alt="Spot Check" src={logo} /></Link>
             {addSpot &&
                 <div className='add_spot_window'>
                 <div className='add_spot_div'>

@@ -14,7 +14,7 @@
     font-weight: 700;
     color: $darkBlue;
     margin-top: 10px;
-    @include input(13px, 13px, 13px, 13px);
+    @include input(13px, 13px, 13px, 13px, 40px);
 }
 
 .suggestions_div {

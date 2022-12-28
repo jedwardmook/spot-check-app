@@ -39,7 +39,7 @@ function SignUp() {
     return (
       <div className="signup_div">
         <div className="signup_info_div">
-            <img className="logo" src={logo}/>
+            <img className="logo" alt="Spot Check" src={logo}/>
             <h1 className='welcome'>Sign up for your account</h1>
         <div className="signup_form">
             <input

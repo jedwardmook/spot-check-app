@@ -56,7 +56,7 @@ function Places({setWhereabouts}){
             {status === "OK" && <div className='suggestions_div'>{renderSuggestions()}</div>}
         </div> : 
         <div className='places_div'>
-            <h2 className='add_spot_header'>CLICK MAP TO ADD SPOT</h2>
+            <h2 className='add_spot_header'>CLICK MAP AT LOCATION TO ADD SPOT</h2>
         </div>
         )
 }
