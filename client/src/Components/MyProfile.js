@@ -8,13 +8,19 @@ function MyProfile() {
     const [userName, setUserName] = useState(user.username)
     const [name, setName] = useState(user.name)
     const [bio, setBio] = useState(user.bio)
-    const [photo, setPhoto] = useState(user.photo)
+    const [photo, setPhoto] = useState(user.photo_url)
     const [editProfile, setEditProfile] = useState(false)
     
     const handleEditProfile = () => {
         setEditProfile(!editProfile)
     }
 
+    const handleSetPhoto = (e) => {
+        let file = e.target.files[0];
+        setPhoto(file)
+    }
+
+    console.log(user)
     const handleProfilePatch = (e) => {
         e.preventDefault();
         fetch(`/users/${user.id}`, {
@@ -26,13 +32,12 @@ function MyProfile() {
                 username: userName,
                 name: name,
                 bio: bio,
-                photo: photo,
             })
         })
         .then((response) => {
             if (response.ok) {
                 response.json().then((user) => {
-                    setUser(user);
+                    setPhoto(user.photo_url);
                 });
             } else {
                 response.json().then((errors) => console.log(errors));
@@ -40,6 +45,32 @@ function MyProfile() {
         });
         handleEditProfile();
     }
+
+    const handlePhotoPatch = (e) => {
+        e.preventDefault();
+        const photoData = new FormData();
+
+        photoData.append('user[photo]', e.target.photo.files[0])
+        submitPhoto(photoData)
+    }
+
+    function submitPhoto(photoData){
+        fetch(`/users/${user.id}`, {
+            method: "PATCH",
+            body: photoData
+        })
+        .then((response) => {
+            if (response.ok) {
+                response.json().then((user) => {
+                setUser(user);
+            });
+            } else {
+            response.json().then((errors) => console.log(errors));
+            }
+        });
+    handleEditProfile();
+}
+
 
     return (
         <div className="profile_div">
@@ -74,14 +105,21 @@ function MyProfile() {
                 <button onClick={handleProfilePatch}>Submit Changes</button>}
             </div>
             <div className="photo_div">
-                <img src={user.photo} alt="Profile pic"/>
-                {editProfile && 
+                <img src={photo} alt="Profile pic"/>
+                {editProfile && (
+                    <div>
+                    <form onSubmit={handlePhotoPatch}>
                     <input
-                        type="text"
-                        value={photo}
-                        onChange={(e) => setPhoto(e.target.value)}
+                        type="file"
+                        name="photo"
+                        multiple={false}
                         placeholder="Profile Pic"
-                        />}
+                        onChange={(e) => handleSetPhoto(e)}
+                        />
+                    <button>Change Image</button>
+                    </form>
+                    </div>
+                    )}
             </div>
         </div>
     )

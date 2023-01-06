@@ -37,6 +37,8 @@ function App() {
           element={<AddSpot
             spotLat={spotLat}
             spotLng={spotLng}
+            addSpot={addSpot}
+            setAddSpot={setAddSpot}
             />}
           />
           <Route path='signup'

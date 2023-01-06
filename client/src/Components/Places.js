@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import usePlacesAutocomplete, {getGeocode, getLatLng} from "use-places-autocomplete"
 import { SwitchesContext } from '../context/switches';
 
-function Places({setWhereabouts}){
+function Places({setWhereabouts, map}){
     const {
         ready, 
         value, 
@@ -25,7 +25,8 @@ function Places({setWhereabouts}){
           clearSuggestions();
           getGeocode({ address: description }).then((results) => {
             const { lat, lng } = getLatLng(results[0]);
-            setWhereabouts({lat, lng})
+            setWhereabouts({lat, lng});
+            map.panTo({lat, lng});
           });
         };
     

@@ -9,6 +9,15 @@ class UsersController < ApplicationController
         render json: { errrors: e.record.errors.full_message }, status: :unprocessable_entity
     end
 
+    def show
+        user = User.find_by(id: params[:id])
+        if user
+          render json: user
+        else
+          render json: { error: "Not authorized" }, status: :unauthorized
+        end
+    end
+
     def update 
         user = User.find_by(id: session[:user_id])
         if user
@@ -21,7 +30,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.permit(:username, :password, :password_confirmation, :name, :bio, :photo)
+        params.require(:user).permit(:username, :password, :password_confirmation, :name, :bio, :photo)
     end
 
 end

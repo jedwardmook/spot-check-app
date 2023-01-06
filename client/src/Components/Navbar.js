@@ -1,6 +1,6 @@
 import '../Styles/navbar.min.css';
 import logo from '../images/text_logo.png'
-import React, {useState, useContext} from "react"
+import React, {useState, useContext, useEffect} from "react"
 import { UserContext } from '../context/user';
 import { SwitchesContext } from '../context/switches';
 import { Link } from "react-router-dom"
@@ -8,8 +8,19 @@ import { Link } from "react-router-dom"
 
 function Navbar({addSpot, setAddSpot}) {
     const [isClicked, setIsClicked] = useState(false)
-    const {user} = useContext(UserContext)
+    const {user, setUser} = useContext(UserContext)
     const {placesDiv, setPlacesDiv} = useContext(SwitchesContext)
+
+    useEffect(() => {
+        fetch('/sessions/1')
+            .then((response) => {
+                if (response.ok) {
+                response.json().then((user) => setUser(user));
+                } else {
+
+            }
+            })
+    }, [])
 
     const handleMenuToggle = () => {
         setIsClicked(!isClicked)
@@ -42,7 +53,7 @@ function Navbar({addSpot, setAddSpot}) {
             {addSpot &&
                 <div className='add_spot_window'>
                 <div className='add_spot_div'>
-                    <Link to="/addspot"><button className='add_spot_button' onClick={handleCancel}>Add Spot?</button></Link>
+                    <Link to="/addspot" onClick={handleCancel}><button className='add_spot_button'>Add Spot?</button></Link>
                     <button className='cancel_button' onClick={handleCancel}>Cancel</button>
                 </div>
             </div>}
