@@ -20,7 +20,6 @@ function MyProfile() {
         setPhoto(file)
     }
 
-    console.log(user)
     const handleProfilePatch = (e) => {
         e.preventDefault();
         fetch(`/users/${user.id}`, {
@@ -37,7 +36,7 @@ function MyProfile() {
         .then((response) => {
             if (response.ok) {
                 response.json().then((user) => {
-                    setPhoto(user.photo_url);
+                    setUser(user);
                 });
             } else {
                 response.json().then((errors) => console.log(errors));
@@ -62,14 +61,14 @@ function MyProfile() {
         .then((response) => {
             if (response.ok) {
                 response.json().then((user) => {
-                setUser(user);
+                setPhoto(user.photo_url);
             });
             } else {
             response.json().then((errors) => console.log(errors));
             }
         });
     handleEditProfile();
-}
+    }
 
 
     return (

@@ -46,9 +46,7 @@
     }
 }
 
-.add_spot_header {
-    color: white;
-    font-family: $sanSarifFont;
-    font-weight: 500;
-    margin-top: 17px;
+.places_div_header {
+    font-weight: 700;
+    @include header(20px, white);
 }

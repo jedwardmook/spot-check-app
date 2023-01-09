@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { GoogleMap, LoadScript, Marker} from "@react-google-maps/api"
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import '../Styles/mapcontainer.min.css'
 import Places from "./Places";
 
@@ -32,8 +32,6 @@ function MapContainer({setAddSpot, addSpot, setSpotLat, setSpotLng}) {
     const [whereabouts, setWhereabouts] = useState(null)
     const [spots, setSpots] = useState([])
     const [selectedSpot, setSelectedSpot] = useState(null)
-
-    let navigate = useNavigate()
 
     const handleClick = (e) => {
         setSpotLat(e.latLng.lat());
@@ -78,7 +76,7 @@ function MapContainer({setAddSpot, addSpot, setSpotLat, setSpotLng}) {
                     {whereabouts && <Marker position={whereabouts}/>}
                 </GoogleMap>
                 {selectedSpot && (
-                    <div className="selected_spot_div">
+                    <Link to={`/spots/${selectedSpot.id}`} className="selected_spot_link"><div className="selected_spot_div">
                         <div className="selected_spot_image_div">
                             <img className="selected_spot_image" src={selectedSpot.photo ? selectedSpot.photo : "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"} />
                         </div>
@@ -87,7 +85,7 @@ function MapContainer({setAddSpot, addSpot, setSpotLat, setSpotLng}) {
                             <h4 className="selected_spot_info_header">Rating:</h4>
                             <p className="<selected_spot_info_about"><strong>About: </strong>{selectedSpot.about.substring(0,50)}...</p>
                         </div>
-                    </div>
+                    </div></Link>
                 )}
                 <Places
                     map={map}

@@ -53,8 +53,11 @@ function Navbar({addSpot, setAddSpot}) {
             {addSpot &&
                 <div className='add_spot_window'>
                 <div className='add_spot_div'>
-                    <Link to="/addspot" onClick={handleCancel}><button className='add_spot_button'>Add Spot?</button></Link>
-                    <button className='cancel_button' onClick={handleCancel}>Cancel</button>
+                        <h5 className='add_spot_header'>Add spot here?</h5>
+                    <div className='add_spot_button_div'>
+                        <Link to="/addspot" onClick={handleCancel}><button className='add_spot_button'>Yes</button></Link>
+                        <button className='cancel_button' onClick={handleCancel}>Cancel</button>
+                    </div>
                 </div>
             </div>}
         </div>

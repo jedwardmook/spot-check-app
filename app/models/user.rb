@@ -5,7 +5,8 @@ class User < ApplicationRecord
     validates :password, presence: true, unless: -> { self.id !=nil }
     validates :password_confirmation, presence: true, unless: -> { self.id != nil }
 
-    def photo_url
-        Rails.application.routes.url_helpers.url_for(photo) if photo.attached?
-    end
+    # def photo_url
+    #     Rails.application.routes.url_helpers.url_for(photo) if photo.attached?
+    # end
+    
 end

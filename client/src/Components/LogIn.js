@@ -8,7 +8,7 @@ function LogIn() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-    const {user, setUser} = useContext(UserContext)
+    const {setUser} = useContext(UserContext)
 
     let navigate = useNavigate()
 

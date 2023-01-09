@@ -12,6 +12,17 @@
     cursor: pointer;
 }
 
+.selected_spot_link {
+    text-decoration: none;
+    color: black;
+    &:active {
+        color: black;
+    }
+    &:visited {
+        color: black
+    }
+}
+
 .selected_spot_image_div {
     height: 90px;
     width: 100px;
@@ -43,5 +54,5 @@
     margin-top: 10px;
     margin-bottom: 0px;
     font-weight: 300;
-    @include header (16px, black)
+    @include header (14px, $redColor);
 }

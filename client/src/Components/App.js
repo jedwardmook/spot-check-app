@@ -9,6 +9,7 @@ import AddSpot from './AddSpot';
 import { UserProvider } from '../context/user';
 import { useState } from 'react';
 import { SwitchesProvider } from '../context/switches';
+import Spot from './Spot';
 
 function App() {
   const [addSpot, setAddSpot] = useState(false)
@@ -47,8 +48,11 @@ function App() {
           <Route path='login'
           element={<LogIn />}
           />
-          <Route path={'myprofile'}
-          element={<MyProfile/>}
+          <Route path='myprofile'
+          element={<MyProfile />}
+          />
+          <Route path={`spots/:spotId`}
+          element={<Spot />}
           />
       </Routes>
       </SwitchesProvider>
