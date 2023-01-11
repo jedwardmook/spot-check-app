@@ -1,0 +1,65 @@
+@import "../Variables/Variables.scss";
+
+.display_spot_div {
+    display: flex;
+    flex-direction: column;
+}
+
+.display_spot_links {
+    display: flex;
+    margin-top: -15px;
+    margin-left: -35px;
+    margin-bottom: 5px;
+    height: 50px;
+    width: auto;
+}
+
+.header_link {
+    font-family: $sanSarifFont;
+    font-weight: 700;
+    font-size: 16px;
+    margin-left: 80px;
+    color: $darkBlue;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.display_spot_photos_div {
+    margin-left: 0;
+    border-top: 1px solid $darkBlue;
+    border-bottom: 1px solid $darkBlue;
+    height: 400px;
+}
+
+.display_spot_info_div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 40px;
+}
+
+.display_spot_name {
+    color: $darkBlue;
+    font-family: $sanSarifFont;
+    font-weight: 700;
+    font-size: 26px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.display_spot_address {
+    font-family: $sanSarifFont;
+    font-weight: 500;
+    margin-top: 2px;
+    font-size: 14px;
+}
+
+.display_spot_about {
+    font-family: $sanSarifFont;
+    font-weight: 300;
+    margin-top: 2px;
+    font-size: 16px;
+}
+
+
